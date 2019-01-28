@@ -73,7 +73,7 @@ class Meal {
             return meal.id === this.mealId;
           }.bind(this)
         )
-      }//.bind(this)
+      }
     );
     return Array.from(new Set(allCust));
   }
