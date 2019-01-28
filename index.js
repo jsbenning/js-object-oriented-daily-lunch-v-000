@@ -23,7 +23,7 @@ class Neighborhood {
   customers(){
     return store.customers.filter(
       function(customer){
-        return customers.neighborhoodId === this.id;
+        return customer.neighborhoodId === this.id;
       }.bind(this)
     );
   }
@@ -36,6 +36,18 @@ class Customer {
     this.name = name;
     this.neighborhoodId = neighborhoodId;
     store.customers.push(this);
+  }
+  meals(){
+    return store.deliveries.filter(
+      function(delivery){
+        if (delivery.customerId === this.id){
+          return delivery.mealId 
+        }
+      }.bind(this)
+    )
+  }
+  deliveries(){
+    
   }
 }
 
@@ -59,9 +71,9 @@ class Meal {
         customer.meals.filter(function
           (meal){
             return meal.id === this.mealId;
-          }
+          }.bind(this)
         )
-      }.bind(this)
+      }//.bind(this)
     );
     return Array.from(new Set(allCust));
   }
